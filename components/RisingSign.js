@@ -1,9 +1,7 @@
-export default function RisingSign({ data }) {
-  data.rising_sign = data.rising_sign.substring(2, data.rising_sign.length - 2);
-
+export default function RisingSign(props) {
   return (
     <>
-      <h1>{data.rising_sign}</h1>
+      <h1>{props.ascendant} Rising</h1>
     </>
   )
 }

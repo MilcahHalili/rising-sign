@@ -107,3 +107,9 @@ export const birthData = [
     ],
   }
 ]
+
+export const signArt = [
+  {
+    'capricorn': 'https://chaninicholas.com/wp-content/uploads/2020/06/Capricorn_FM_FB.jpg'
+  }
+]

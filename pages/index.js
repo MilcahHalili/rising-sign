@@ -1,15 +1,17 @@
+import { useEffect } from 'react'
+import Form from '../components/Form'
 import Head from 'next/head'
-import useSWR from 'swr'
+import Image from 'next/image'
 import RisingSign from '../components/RisingSign'
+import userId from './.env.local'
+import apiKey from './.env.local'
 import styles from '../styles/Home.module.css'
 
-const fetcher = url => fetch(url).then(res => res.json())
+export default function Home(props) {
 
-export default function Home() {
-  const { data, error } = useSWR('/api/birthData', fetcher)
-
-  if (error) return <div>Failed to load rising sign</div>
-  if (!data) return <div>Loading . . .</div>
+  useEffect(() => {
+    if (!props.ascendant) return <div>Loading . . .</div>
+  })
 
   return (
     <div className={styles.container}>
@@ -27,21 +29,46 @@ export default function Home() {
       </header>
 
       <main className={styles.main}>
-        {data.map((d, i) => (
-          <RisingSign key={i} data={d} />
-        ))}
+        <RisingSign
+          ascendant={props.ascendant}
+        />
+        <Image
+          src="/capricorn.jpg"
+          alt="Capricorn Rising"
+          width="657.600"
+          height="345.237"
+        />
+        <Form />
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const body = {
+    day: 10,
+    month: 5,
+    year: 1990,
+    hour: 19,
+    min: 55,
+    lat: 19.2056,
+    lon: 25.2056,
+    tzone: 5.5
+  }
+  // Call an external API endpoint to POST form body
+  const res = await fetch(
+    'https://json.astrologyapi.com/v1/general_ascendant_report/tropical',
+    {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Basic ' + Buffer.from(`${userId}:${apiKey}`).toString('base64'),
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body),
+    }
+  )
+  const data = await res.json()
+  return {
+    props: data
+  }
 }
