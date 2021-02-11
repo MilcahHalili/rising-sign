@@ -29,6 +29,7 @@ export default function Home(props) {
       <main className={styles.main}>
         <RisingSign
           ascendant={props.ascendant}
+          report={props.report}
         />
         <Image
           src={`https://chaninicholas.com/wp-content/uploads/2019/12/${(props.ascendant).toLowerCase()}@2x.png`}
