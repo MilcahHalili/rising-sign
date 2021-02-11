@@ -18,10 +18,11 @@ export default function Home(props) {
       </Head>
 
       <header style={{display: 'flex', justifyContent: 'center', marginTop: 20}}>
-        <img
+        <Image
           src="https://chart.chaninicholas.com/static/media/Chani-Nicholas-Regular-Logo-1-Line-1600x182.236fd9a2.png"
           alt="Rising Sign Display Tool by Chani"
-          style={{width: 800}}
+          width={800}
+          height={91}
         />
       </header>
 
