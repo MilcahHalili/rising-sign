@@ -1,10 +1,7 @@
 import { useEffect } from 'react'
-import Form from '../components/Form'
 import Head from 'next/head'
 import Image from 'next/image'
 import RisingSign from '../components/RisingSign'
-import userId from './.env.local'
-import apiKey from './.env.local'
 import styles from '../styles/Home.module.css'
 
 export default function Home(props) {
@@ -20,7 +17,7 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
+      <header style={{display: 'flex', justifyContent: 'center', marginTop: 20}}>
         <img
           src="https://chart.chaninicholas.com/static/media/Chani-Nicholas-Regular-Logo-1-Line-1600x182.236fd9a2.png"
           alt="Rising Sign Display Tool by Chani"
@@ -33,12 +30,11 @@ export default function Home(props) {
           ascendant={props.ascendant}
         />
         <Image
-          src="/capricorn.jpg"
-          alt="Capricorn Rising"
-          width="657.600"
-          height="345.237"
+          src={`https://chaninicholas.com/wp-content/uploads/2019/12/${(props.ascendant).toLowerCase()}@2x.png`}
+          alt={`${props.ascendant} Rising`}
+          width={64}
+          height={65}
         />
-        <Form />
       </main>
     </div>
   )
@@ -61,7 +57,7 @@ export async function getStaticProps() {
     {
       method: 'POST',
       headers: {
-        'Authorization': 'Basic ' + Buffer.from(`${userId}:${apiKey}`).toString('base64'),
+        'Authorization': 'Basic ' + Buffer.from(`${process.env.USER_ID}:${process.env.API_KEY}`).toString('base64'),
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(body),
