@@ -27,15 +27,15 @@ export default function Home(props) {
       </header>
 
       <main className={styles.main}>
-        <RisingSign
-          ascendant={props.ascendant}
-          report={props.report}
-        />
         <Image
           src={`https://chaninicholas.com/wp-content/uploads/2019/12/${(props.ascendant).toLowerCase()}@2x.png`}
           alt={`${props.ascendant} Rising`}
           width={64}
           height={65}
+        />
+        <RisingSign
+          ascendant={props.ascendant}
+          report={props.report}
         />
       </main>
     </div>
