@@ -18,10 +18,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <header>
+        <img
+          src="https://chart.chaninicholas.com/static/media/Chani-Nicholas-Regular-Logo-1-Line-1600x182.236fd9a2.png"
+          alt="Rising Sign Display Tool by Chani"
+          style={{width: 800}}
+        />
+      </header>
+
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Rising Sign Display Tool by Chani
-        </h1>
         {data.map((d, i) => (
           <RisingSign key={i} data={d} />
         ))}
