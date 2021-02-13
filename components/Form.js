@@ -105,7 +105,7 @@ export default class Form extends Component {
             step="any"
             required
           />
-          <button type="submit">SUBMIT</button>
+          <input type="submit" value="SUBMIT" />
         </form>
       </>
     )

@@ -5,27 +5,29 @@ import Form from '../components/Form'
 import RisingSign from '../components/RisingSign'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home(props) {
   const [birthData, setBirthData] = useState()
   const [risingSign, setRisingSign] = useState()
 
-  const postApi = async data => {
-    await console.log(birthData, ' pre fetch')
-    fetch('http://localhost:3000/api/ascendant', {
-      method: 'POST',
+  useEffect(async () => {
+    if (risingSign === undefined) {
+      return
+    }
+    console.log(risingSign, ' before')
+    setRisingSign(risingSign)
+    console.log(risingSign, ' after')
+  })
+
+  const postApi = async (data) => {
+    const res = await fetch('http://localhost:3000/api/ascendant', {
+      body: JSON.stringify(data),
       headers: {
           'Content-Type': 'application/json'
       },
-      body: JSON.stringify(birthData)
+      method: 'POST'
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data, ' data')
-      console.log(risingSign, ' risingSign')
-      setRisingSign(data)
-      console.log(risingSign, ' after set')
-    })
-    .catch(err => console.log(err))
+    const result = await res.json()
+    setRisingSign(result)
   }
 
   const handleBirthData = async event => {
@@ -43,8 +45,8 @@ export default function Home() {
     }
 
     console.log(context, ' context')
-    setBirthData(context)
-    postApi(birthData)
+    postApi(context)
+    console.log(context, ' after postApi')
   }
 
   return (
