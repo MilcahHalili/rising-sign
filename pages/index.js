@@ -41,9 +41,7 @@ export default function Home(props) {
       tzone: parseFloat(event.target.tzone.value)
     }
 
-    console.log(context, ' context')
     postApi(context)
-    console.log(context, ' after postApi')
   }
 
   return (
