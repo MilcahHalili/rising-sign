@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styles from '../styles/Form.module.css'
 
 export default class Form extends Component {
   state = {
@@ -20,7 +21,7 @@ export default class Form extends Component {
   
   render() {
     return (
-      <>
+      <main className={styles.main}>
         <form onSubmit={this.props.handleBirthData}>
           <label htmlFor="day">Birth Day</label>
           <input
@@ -29,6 +30,7 @@ export default class Form extends Component {
             type="number"
             autoComplete="day"
             value={this.day}
+            className={styles.input}
             onChange={this.handleChange}
             required
           />
@@ -39,6 +41,7 @@ export default class Form extends Component {
             type="number"
             autoComplete="month"
             value={this.month}
+            className={styles.input}
             onChange={this.handleChange}
             required
           />
@@ -49,6 +52,7 @@ export default class Form extends Component {
             type="number"
             autoComplete="year"
             value={this.year}
+            className={styles.input}
             onChange={this.handleChange}
             required
           />
@@ -59,6 +63,7 @@ export default class Form extends Component {
             type="number"
             autoComplete="hour"
             value={this.hour}
+            className={styles.input}
             onChange={this.handleChange}
             required
           />
@@ -69,6 +74,7 @@ export default class Form extends Component {
             type="number"
             autoComplete="min"
             value={this.min}
+            className={styles.input}
             onChange={this.handleChange}
             required  
           />
@@ -79,6 +85,7 @@ export default class Form extends Component {
             type="number"
             autoComplete="lat"
             value={this.lat}
+            className={styles.input}
             onChange={this.handleChange}
             step="any"
             required
@@ -90,6 +97,7 @@ export default class Form extends Component {
             type="number"
             autoComplete="lon"
             value={this.lon}
+            className={styles.input}
             onChange={this.handleChange}
             step="any"
             required
@@ -101,13 +109,14 @@ export default class Form extends Component {
             type="number"
             autoComplete="tzone"
             value={this.tzone}
+            className={styles.input}
             onChange={this.handleChange}
             step="any"
             required
           />
           <input type="submit" value="SUBMIT" />
         </form>
-      </>
+      </main>
     )
   }
 }

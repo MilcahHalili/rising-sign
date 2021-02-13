@@ -8,6 +8,7 @@ import styles from '../styles/Home.module.css'
 export default function Home(props) {
   const [birthData, setBirthData] = useState()
   const [risingSign, setRisingSign] = useState()
+  const [justArrived, setJustArrived] = useState(true)
 
   useEffect(async () => {
     if (risingSign === undefined) {
@@ -88,11 +89,11 @@ export default function Home(props) {
             />
           </>
         }
+        <Form
+          handleBirthData={handleBirthData}
+        />
       </main>
 
-      <Form
-        handleBirthData={handleBirthData}
-      />
     </div>
   )
 }
