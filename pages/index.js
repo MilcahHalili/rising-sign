@@ -5,7 +5,7 @@ import Form from '../components/Form'
 import RisingSign from '../components/RisingSign'
 import styles from '../styles/Home.module.css'
 
-export default function Home(props) {
+export default function Home() {
   const [risingSign, setRisingSign] = useState()
 
   useEffect(async () => {
@@ -67,7 +67,10 @@ export default function Home(props) {
       </header>
 
       <main className={styles.main}>
-        {(!risingSign) ? ''
+        {(!risingSign) ?
+          <Form
+            handleBirthData={handleBirthData}
+          />
           :
           <>
             <Image
@@ -83,9 +86,6 @@ export default function Home(props) {
             />
           </>
         }
-        <Form
-          handleBirthData={handleBirthData}
-        />
       </main>
 
     </div>
