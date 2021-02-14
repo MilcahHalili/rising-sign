@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
+import SearchInput from './SearchInput'
 import styles from '../styles/Form.module.css'
 
 const currentYear = new Date().getFullYear()
@@ -15,7 +16,7 @@ export default class Form extends Component {
     tzone: ''
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -34,7 +35,7 @@ export default class Form extends Component {
             min="1"
             max="31"
             value={this.day}
-            className={styles.input}
+            className="input"
             onChange={this.handleChange}
             required
           />
@@ -47,7 +48,7 @@ export default class Form extends Component {
             min="1"
             max="12"
             value={this.month}
-            className={styles.input}
+            className="input"
             onChange={this.handleChange}
             required
           />
@@ -60,7 +61,7 @@ export default class Form extends Component {
             placeholder="YYYY"
             max={currentYear}
             value={this.year}
-            className={styles.input}
+            className="input"
             onChange={this.handleChange}
             required
           />
@@ -72,7 +73,7 @@ export default class Form extends Component {
             autoComplete="hour"
             placeholder="HH"
             value={this.hour}
-            className={styles.input}
+            className="input"
             onChange={this.handleChange}
             required
           />
@@ -84,34 +85,36 @@ export default class Form extends Component {
             autoComplete="min"
             placeholder="MM"
             value={this.min}
-            className={styles.input}
+            className="input"
             onChange={this.handleChange}
             required  
           />
-          <label htmlFor="lat">Lat</label>
+          <SearchInput
+            setLat={this.props.setLat}
+            setLong={this.props.setLong}
+          />
+          {/* <label htmlFor="lat">Lat</label>
           <input
             id="lat"
             name="lat"
-            type="number"
+            type="text"
             autoComplete="lat"
             value={this.lat}
-            className={styles.input}
+            className="input"
             onChange={this.handleChange}
-            step="any"
             required
           />
           <label htmlFor="lon">Long</label>
           <input
             id="lon"
             name="lon"
-            type="number"
+            type="text"
             autoComplete="lon"
             value={this.lon}
-            className={styles.input}
+            className="input"
             onChange={this.handleChange}
-            step="any"
             required
-          />
+          /> */}
           <label htmlFor="tzone">Tzone</label>
           <input
             id="tzone"
@@ -119,9 +122,8 @@ export default class Form extends Component {
             type="number"
             autoComplete="tzone"
             value={this.tzone}
-            className={styles.input}
+            className="input"
             onChange={this.handleChange}
-            step="any"
             required
           />
           <div id={styles.submitCntnr}>

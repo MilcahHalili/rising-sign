@@ -7,6 +7,8 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [risingSign, setRisingSign] = useState()
+  const [lat, setLat] = useState('')
+  const [long, setLong] = useState('')
 
   useEffect(async () => {
     if (risingSign === undefined) {
@@ -36,8 +38,8 @@ export default function Home() {
       year: parseInt(event.target.year.value),
       hour: parseInt(event.target.hour.value),
       min: parseInt(event.target.min.value),
-      lat: parseFloat(event.target.lat.value),
-      lon: parseFloat(event.target.lon.value),
+      lat: lat,
+      lon: long,
       tzone: parseFloat(event.target.tzone.value)
     }
 
@@ -49,7 +51,7 @@ export default function Home() {
       <Head>
         <title>Rising Sign Display Tool by Chani</title>
         <link rel="icon" href="/favicon.ico" />
-        <script async src={`https://maps.googleapis.com/maps/api/js?key=${process.env.PLACES_API_KEY}&libraries=places`}></script>
+        <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.PLACES_API_KEY}&libraries=places`}></script>
       </Head>
 
       <header
@@ -74,6 +76,8 @@ export default function Home() {
             <h1>Rising Sign</h1>
             <Form
               handleBirthData={handleBirthData}
+              setLat={setLat}
+              setLong={setLong}
             />
           </>
           :

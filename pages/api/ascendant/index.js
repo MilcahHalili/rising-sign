@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import axios from 'axios'
 
-export default async function handler(req, res) {
+export default async function handler(req, res, err) {
   const url = process.env.API_URL
   
   if (req.method === 'POST') {
@@ -14,6 +14,8 @@ export default async function handler(req, res) {
     })
     if (response) {
       res.status(200).json(response.data)
+    } else {
+      console.log(err)
     }
   }
 }
