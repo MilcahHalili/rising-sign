@@ -94,7 +94,6 @@ export default class Form extends Component {
             setLong={this.props.setLong}
             setTzone={this.props.setTzone}
           />
-          <label htmlFor="tzone">Tzone</label>
           <div id={styles.submitCntnr}>
             <input
               type="submit"
