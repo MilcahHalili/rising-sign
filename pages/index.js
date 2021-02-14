@@ -9,6 +9,7 @@ export default function Home() {
   const [risingSign, setRisingSign] = useState()
   const [lat, setLat] = useState('')
   const [long, setLong] = useState('')
+  const [tzone, setTzone] = useState('')
 
   useEffect(async () => {
     if (risingSign === undefined) {
@@ -40,9 +41,8 @@ export default function Home() {
       min: parseInt(event.target.min.value),
       lat: lat,
       lon: long,
-      tzone: parseFloat(event.target.tzone.value)
+      tzone: (tzone)
     }
-
     postApi(context)
   }
 
@@ -78,6 +78,7 @@ export default function Home() {
               handleBirthData={handleBirthData}
               setLat={setLat}
               setLong={setLong}
+              setTzone={setTzone}
             />
           </>
           :

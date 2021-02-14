@@ -1,12 +1,10 @@
-import { useState } from 'react'
-
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
+  getDetails
 } from "use-places-autocomplete";
 
 export default function SearchInput(props) {
-
   const {
     ready,
     value,
@@ -14,34 +12,41 @@ export default function SearchInput(props) {
     setValue,
     clearSuggestions,
   } = usePlacesAutocomplete({
-    requestOptions: {
-      /* Define search scope here */
-    },
     debounce: 300,
   });
 
-  const handleInput = (e) => {
-    // Update the keyword of the input element
+  const handleChange = (e) => {
     setValue(e.target.value);
   };
 
   const handleSelect = ({ description }) => () => {
-    // When user selects a place, we can replace the keyword without request data from API
-    // by setting the second parameter to "false"
     setValue(description, false);
     clearSuggestions();
 
-    // Get latitude and longitude via utility functions
     getGeocode({ address: description })
-      .then((results) => getLatLng(results[0]))
+      .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        console.log("📍 Coordinates: ", { lat, lng });
-          props.setLat(lat)
-          props.setLong(lng)
+        props.setLat(lat)
+        props.setLong(lng)
       })
       .catch((error) => {
-        console.log("😱 Error: ", error);
+        console.log("😭 Error: ", error);
       });
+    
+    let placeId = ''
+
+    getGeocode({ address: description })
+      .then(results => placeId = results[0].place_id)
+      .then(params => {
+        params = {
+          placeId: placeId,
+          fields: ['utc_offset_minutes']
+        }
+        getDetails(params)
+          .then((detail) => {
+            props.setTzone(detail.utc_offset_minutes / 60)
+          })
+      })
   };
 
   const renderSuggestions = () =>
@@ -62,12 +67,12 @@ export default function SearchInput(props) {
     <>
       <label htmlFor="place">Birth Place</label>
       <input
-        onChange={handleInput}
+        onChange={handleChange}
         placeholder="Oakland, CA, US"
         value={value}
         className="input"
+        required
       />
-      {/* We can use the "status" to decide whether we should display the dropdown or not */}
       {status === "OK" && <ul>{renderSuggestions()}</ul>}
     </>
   );

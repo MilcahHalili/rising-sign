@@ -92,40 +92,9 @@ export default class Form extends Component {
           <SearchInput
             setLat={this.props.setLat}
             setLong={this.props.setLong}
+            setTzone={this.props.setTzone}
           />
-          {/* <label htmlFor="lat">Lat</label>
-          <input
-            id="lat"
-            name="lat"
-            type="text"
-            autoComplete="lat"
-            value={this.lat}
-            className="input"
-            onChange={this.handleChange}
-            required
-          />
-          <label htmlFor="lon">Long</label>
-          <input
-            id="lon"
-            name="lon"
-            type="text"
-            autoComplete="lon"
-            value={this.lon}
-            className="input"
-            onChange={this.handleChange}
-            required
-          /> */}
           <label htmlFor="tzone">Tzone</label>
-          <input
-            id="tzone"
-            name="tzone"
-            type="number"
-            autoComplete="tzone"
-            value={this.tzone}
-            className="input"
-            onChange={this.handleChange}
-            required
-          />
           <div id={styles.submitCntnr}>
             <input
               type="submit"
