@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styles from '../styles/Form.module.css'
 
+const currentYear = new Date().getFullYear()
+
 export default class Form extends Component {
   state = {
     day: '',
@@ -29,6 +31,8 @@ export default class Form extends Component {
             name="day"
             type="number"
             autoComplete="day"
+            min="1"
+            max="31"
             value={this.day}
             className={styles.input}
             onChange={this.handleChange}
@@ -40,6 +44,8 @@ export default class Form extends Component {
             name="month"
             type="number"
             autoComplete="month"
+            min="1"
+            max="12"
             value={this.month}
             className={styles.input}
             onChange={this.handleChange}
@@ -51,6 +57,8 @@ export default class Form extends Component {
             name="year"
             type="number"
             autoComplete="year"
+            placeholder="YYYY"
+            max={currentYear}
             value={this.year}
             className={styles.input}
             onChange={this.handleChange}
@@ -62,6 +70,7 @@ export default class Form extends Component {
             name="hour"
             type="number"
             autoComplete="hour"
+            placeholder="HH"
             value={this.hour}
             className={styles.input}
             onChange={this.handleChange}
@@ -73,6 +82,7 @@ export default class Form extends Component {
             name="min"
             type="number"
             autoComplete="min"
+            placeholder="MM"
             value={this.min}
             className={styles.input}
             onChange={this.handleChange}
@@ -114,7 +124,13 @@ export default class Form extends Component {
             step="any"
             required
           />
-          <input type="submit" value="SUBMIT" />
+          <div id={styles.submitCntnr}>
+            <input
+              type="submit"
+              value="SUBMIT"
+              id={styles.submit}
+            />
+          </div>
         </form>
       </main>
     )

@@ -49,13 +49,15 @@ export default function Home() {
       <Head>
         <title>Rising Sign Display Tool by Chani</title>
         <link rel="icon" href="/favicon.ico" />
+        <script async src={`https://maps.googleapis.com/maps/api/js?key=${process.env.PLACES_API_KEY}&libraries=places`}></script>
       </Head>
 
       <header
         style={{
           display: 'flex',
           justifyContent: 'center',
-          marginTop: 77
+          marginTop: 77,
+          marginBottom: 19.25
         }}
       >
         <Image
@@ -68,9 +70,12 @@ export default function Home() {
 
       <main className={styles.main}>
         {(!risingSign) ?
-          <Form
-            handleBirthData={handleBirthData}
-          />
+          <>
+            <h1>Rising Sign</h1>
+            <Form
+              handleBirthData={handleBirthData}
+            />
+          </>
           :
           <>
             <Image
