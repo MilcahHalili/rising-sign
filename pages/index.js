@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Image from 'next/image'
 import Form from '../components/Form'
@@ -10,6 +11,7 @@ export default function Home() {
   const [lat, setLat] = useState('')
   const [long, setLong] = useState('')
   const [tzone, setTzone] = useState('')
+  const router = useRouter()
 
   useEffect(async () => {
     if (risingSign === undefined) {
@@ -44,6 +46,7 @@ export default function Home() {
       tzone: (tzone)
     }
     postApi(context)
+    router.push('#__next')
   }
 
   return (
@@ -63,6 +66,7 @@ export default function Home() {
         }}
       >
         <Image
+          id="chani"
           src="https://chart.chaninicholas.com/static/media/Chani-Nicholas-Regular-Logo-1-Line-1600x182.236fd9a2.png"
           alt="Rising Sign Display Tool by Chani"
           width={800}
