@@ -2,7 +2,6 @@ import { Component } from 'react'
 import MiddayDropdown from './MiddayDropdown'
 import MonDropdown from './MonDropdown'
 import SearchInput from './SearchInput'
-import styles from '../styles/Form.module.css'
 
 let currentYear = new Date().getFullYear()
 
@@ -150,6 +149,33 @@ export default class Form extends Component {
           </div>
         </form>
         <style jsx>{`
+          .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 33%;
+            min-width: 25%;
+          }
+          
+          #submitCntnr {
+            text-align: center;
+            margin: 10px 0 77px 0;
+          }
+          
+          #submit {
+            background: rgb(255,14,80);
+            background: linear-gradient(90deg, rgba(255,14,80,1) 0%, rgba(213,45,155,1) 50%);
+            font-style: italic;
+            font-weight: 900;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            border: none;
+            width: 175px;
+            padding: 10px 0;
+            border-radius: 25px;
+          }
           @media (max-width: 812px) {
             form {
               width: 300px;
