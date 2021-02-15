@@ -23,7 +23,7 @@ a {
   box-sizing: border-box;
 }
 
-.input {
+.input, .dropdown {
   height: 40px;
   width: 100%;
   margin:  10px 0;

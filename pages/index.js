@@ -7,9 +7,10 @@ import RisingSign from '../components/RisingSign'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const [risingSign, setRisingSign] = useState()
   const [lat, setLat] = useState('')
   const [long, setLong] = useState('')
+  const [midday, setMidday] = useState('')
+  const [risingSign, setRisingSign] = useState()
   const [tzone, setTzone] = useState('')
   const router = useRouter()
 
@@ -39,14 +40,14 @@ export default function Home() {
       day: parseInt(event.target.day.value),
       month: parseInt(event.target.month.value),
       year: parseInt(event.target.year.value),
-      hour: parseInt(event.target.hour.value),
+      hour: (midday === 'PM' ? (parseInt(event.target.hour.value) + 12) : parseInt(event.target.hour.value)),
       min: parseInt(event.target.min.value),
       lat: lat,
       lon: long,
-      tzone: (tzone)
+      tzone: tzone
     }
     postApi(context)
-    router.push('#__next')
+    router.push('/#__next', '/')
   }
 
   return (
@@ -82,6 +83,7 @@ export default function Home() {
               handleBirthData={handleBirthData}
               setLat={setLat}
               setLong={setLong}
+              setMidday={setMidday}
               setTzone={setTzone}
             />
           </>

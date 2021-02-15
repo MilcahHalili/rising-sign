@@ -1,8 +1,9 @@
 import { Component } from 'react'
+import MiddayDropdown from './MiddayDropdown'
 import SearchInput from './SearchInput'
 import styles from '../styles/Form.module.css'
 
-const currentYear = new Date().getFullYear()
+let currentYear = new Date().getFullYear()
 
 export default class Form extends Component {
   state = {
@@ -11,9 +12,39 @@ export default class Form extends Component {
     year: '',
     hour: '',
     min: '',
-    lat: '',
-    lon: '',
-    tzone: ''
+    maxDays: 31
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.month !== this.state.month) {
+      this.calculateMaxDays()
+    }
+  }
+
+  calculateFebMaxDays = () => {
+    let lastTwoDigits = parseInt(this.state.year.toString().substr(-2));
+    (this.state.year % 4 === 0 && this.state.year % 10 === 0 && this.state.year % 40 === lastTwoDigits) ?
+      this.setState({
+        maxDays: 29
+      })
+    :
+      this.setState({
+        maxDays: 28
+      })
+  }
+
+  calculateMaxDays = () => {
+    if (this.state.month === '1' || this.state.month === '3' || this.state.month === '5' || this.state.month === '7' || this.state.month === '8' || this.state.month === '10' || this.state.month === '12') {
+      this.setState({
+        maxDays: 31
+      })
+    } else if (this.state.month === '4' || this.state.month === '6' || this.state.month === '9' || this.state.month === '11') {
+      this.setState({
+        maxDays: 30
+      })
+    } else {
+      this.calculateFebMaxDays()
+    }
   }
 
   handleChange = event => {
@@ -26,35 +57,8 @@ export default class Form extends Component {
     return (
       <main className={styles.main}>
         <form onSubmit={this.props.handleBirthData}>
-          <label htmlFor="day">Birth Day</label>
-          <input
-            id="day"
-            name="day"
-            type="number"
-            autoComplete="day"
-            min="1"
-            max="31"
-            value={this.day}
-            className="input"
-            onChange={this.handleChange}
-            required
-          />
-          <label htmlFor="month">Birth Month</label>
-          <input
-            id="month"
-            name="month"
-            type="number"
-            autoComplete="month"
-            min="1"
-            max="12"
-            value={this.month}
-            className="input"
-            onChange={this.handleChange}
-            required
-          />
           <label htmlFor="year">Birth Year</label>
           <input
-            id="year"
             name="year"
             type="number"
             autoComplete="year"
@@ -65,9 +69,34 @@ export default class Form extends Component {
             onChange={this.handleChange}
             required
           />
+          <label htmlFor="month">Birth Month</label>
+          <input
+            name="month"
+            type="number"
+            autoComplete="month"
+            placeholder="MM"
+            min="1"
+            max="12"
+            value={this.month}
+            className="input"
+            onChange={this.handleChange}
+            required
+          />
+          <label htmlFor="day">Birth Day</label>
+          <input
+            name="day"
+            type="number"
+            autoComplete="day"
+            placeholder="DD"
+            min="1"
+            max={this.state.maxDays}
+            value={this.day}
+            className="input"
+            onChange={this.handleChange}
+            required
+          />
           <label htmlFor="hour">Birth Hour</label>
           <input
-            id="hour"
             name="hour"
             type="number"
             autoComplete="hour"
@@ -79,7 +108,6 @@ export default class Form extends Component {
           />
           <label htmlFor="min">Birth Minute</label>
           <input
-            id="min"
             name="min"
             type="number"
             autoComplete="min"
@@ -88,6 +116,9 @@ export default class Form extends Component {
             className="input"
             onChange={this.handleChange}
             required  
+          />
+          <MiddayDropdown
+            setMidday={this.props.setMidday}
           />
           <SearchInput
             setLat={this.props.setLat}
