@@ -48,7 +48,7 @@ export default function Home() {
       lon: long,
       tzone: tzone
     }
-    console.log(context)
+    console.log(context, ' context in handleBirthData')
     postApi(context)
     router.push('/#__next', '/')
   }
