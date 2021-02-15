@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import Form from '../components/Form'
 import RisingSign from '../components/RisingSign'
 import styles from '../styles/Home.module.css'
@@ -16,9 +17,6 @@ export default function Home() {
   const router = useRouter()
 
   useEffect(async () => {
-    // if (risingSign === undefined) {
-    //   return
-    // }
     setRisingSign(risingSign)
     setTzone(tzone)
   })
@@ -70,13 +68,17 @@ export default function Home() {
           marginBottom: 19.25
         }}
       >
-        <Image
-          id="chani"
-          src="/images/Chani-Nicholas-Logo.png"
-          alt="Rising Sign Display Tool by Chani"
-          width={800}
-          height={91}
-        />
+        <Link href="/">
+          <a onClick={() => setRisingSign('')}>
+            <Image
+              id="chani"
+              src="/images/Chani-Nicholas-Logo.png"
+              alt="Rising Sign Display Tool by Chani"
+              width={800}
+              height={91}
+            />
+          </a>
+        </Link>
       </header>
 
       <main className={styles.main}>
