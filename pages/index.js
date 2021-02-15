@@ -17,11 +17,11 @@ export default function Home() {
   const router = useRouter()
 
   useEffect(async () => {
-    setRisingSign(risingSign)
     setTzone(tzone)
+    setRisingSign(risingSign)
   })
 
-  const postApi = async (data) => {
+  const postApi = async data => {
     const res = await fetch('/api/ascendant', {
       body: JSON.stringify(data),
       headers: {
@@ -100,15 +100,16 @@ export default function Home() {
           :
           <>
             <Image
-              src={`/images/${risingSign.ascendant}.png`}
-              alt={`${risingSign.ascendant} Rising`}
+              src={`/images/${risingSign.houses[0].sign}.png`}
+              alt={`${risingSign.houses[0].sign} Rising`}
               width={64}
               height={65}
             />
 
             <RisingSign
-              ascendant={risingSign.ascendant}
-              report={risingSign.report}
+              ascendantSign={risingSign.houses[0].sign}
+              ascendantSummary={risingSign.rising_sign}
+              ascendantRuler={risingSign.ascendant_ruler}
             />
           </>
         }

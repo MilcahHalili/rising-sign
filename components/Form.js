@@ -149,6 +149,14 @@ export default class Form extends Component {
             />
           </div>
         </form>
+        <style jsx>{`
+          @media (max-width: 812px) {
+            form {
+              width: 300px;
+            }
+          }
+        `}
+        </style>
       </main>
     )
   }

@@ -114,6 +114,12 @@
   height: 1em;
 }
 
+@media (max-width: 812px) {
+  .main {
+    padding-top: 0;
+  }
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
