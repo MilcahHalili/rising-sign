@@ -68,7 +68,7 @@ export default function Home() {
       >
         <Image
           id="chani"
-          src="/images/Chani-Nicholas-Logo.png"
+          src="https://chart.chaninicholas.com/static/media/Chani-Nicholas-Regular-Logo-1-Line-1600x182.236fd9a2.png"
           alt="Rising Sign Display Tool by Chani"
           width={800}
           height={91}
