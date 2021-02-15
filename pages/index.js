@@ -18,10 +18,13 @@ export default function Home() {
     if (risingSign === undefined) {
       return
     }
+    console.log(risingSign)
     setRisingSign(risingSign)
+    setTzone(tzone)
   })
 
   const postApi = async (data) => {
+    console.log(data, ' from postApi')
     const res = await fetch('/api/ascendant', {
       body: JSON.stringify(data),
       headers: {
@@ -30,6 +33,7 @@ export default function Home() {
       method: 'POST'
     })
     const result = await res.json()
+    console.log(result)
     setRisingSign(result)
   }
 
@@ -40,7 +44,7 @@ export default function Home() {
       day: parseInt(event.target.day.value),
       month: parseInt(event.target.month.value),
       year: parseInt(event.target.year.value),
-      hour: (midday === 'PM' ? (parseInt(event.target.hour.value) + 12) : parseInt(event.target.hour.value)),
+      hour: ((midday === 'PM' && parseInt(event.target.hour.value) !== 12) ? (parseInt(event.target.hour.value) + 12) : parseInt(event.target.hour.value)),
       min: parseInt(event.target.min.value),
       lat: lat,
       lon: long,
@@ -87,6 +91,8 @@ export default function Home() {
               setLong={setLong}
               setMidday={setMidday}
               setTzone={setTzone}
+              lat={lat}
+              lon={long}
             />
           </>
           :

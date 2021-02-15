@@ -47,6 +47,24 @@ export default class Form extends Component {
     }
   }
 
+  postTimeZoneApi = async (data) => {
+    data = {
+      lat: this.props.lat,
+      lon: this.props.lon,
+      date: `${this.state.year}-0${this.state.month}-${this.state.day}`
+    }
+    console.log(data.date)
+    const res = await fetch('/api/timezone', {
+      body: JSON.stringify(data),
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      method: 'POST'
+    })
+    const result = await res.json()
+    this.props.setTzone(result.timezone)
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -63,11 +81,13 @@ export default class Form extends Component {
             type="number"
             autoComplete="year"
             placeholder="YYYY"
+            min={1850}
             max={currentYear}
             value={this.year}
             className="input"
             onChange={this.handleChange}
             required
+            
           />
           <label htmlFor="month">Birth Month</label>
           <input
@@ -121,9 +141,12 @@ export default class Form extends Component {
             setMidday={this.props.setMidday}
           />
           <SearchInput
+            day={this.props.day}
+            month={this.props.month}
+            year={this.props.year}
+            postTimeZoneApi={this.postTimeZoneApi}
             setLat={this.props.setLat}
             setLong={this.props.setLong}
-            setTzone={this.props.setTzone}
           />
           <div id={styles.submitCntnr}>
             <input

@@ -27,26 +27,16 @@ export default function SearchInput(props) {
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
         props.setLat(lat)
+        console.log(lat)
         props.setLong(lng)
+        console.log(lng)
+      })
+      .then(() => {
+        props.postTimeZoneApi()
       })
       .catch((error) => {
         console.log("😭 Error: ", error);
       });
-    
-    let placeId = ''
-
-    getGeocode({ address: description })
-      .then(results => placeId = results[0].place_id)
-      .then(params => {
-        params = {
-          placeId: placeId,
-          fields: ['utc_offset_minutes']
-        }
-        getDetails(params)
-          .then((detail) => {
-            props.setTzone(detail.utc_offset_minutes / 60)
-          })
-      })
   };
 
   const renderSuggestions = () =>
@@ -68,6 +58,7 @@ export default function SearchInput(props) {
       <label htmlFor="place">Birth Place</label>
       <input
         onChange={handleChange}
+
         placeholder="Oakland, CA, US"
         value={value}
         className="input"
