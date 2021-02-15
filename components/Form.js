@@ -53,7 +53,6 @@ export default class Form extends Component {
       lon: this.props.lon,
       date: `${this.state.year}-0${this.state.month}-${this.state.day}`
     }
-    console.log(data.date)
     const res = await fetch('/api/timezone', {
       body: JSON.stringify(data),
       headers: {

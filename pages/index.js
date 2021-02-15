@@ -18,13 +18,11 @@ export default function Home() {
     if (risingSign === undefined) {
       return
     }
-    console.log(risingSign)
     setRisingSign(risingSign)
     setTzone(tzone)
   })
 
   const postApi = async (data) => {
-    console.log(data, ' from postApi')
     const res = await fetch('/api/ascendant', {
       body: JSON.stringify(data),
       headers: {
@@ -33,7 +31,6 @@ export default function Home() {
       method: 'POST'
     })
     const result = await res.json()
-    console.log(result)
     setRisingSign(result)
   }
 

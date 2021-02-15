@@ -27,9 +27,7 @@ export default function SearchInput(props) {
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
         props.setLat(lat)
-        console.log(lat)
         props.setLong(lng)
-        console.log(lng)
       })
       .then(() => {
         props.postTimeZoneApi()
