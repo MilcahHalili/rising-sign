@@ -55,7 +55,7 @@ export default function Home() {
       <Head>
         <title>Rising Sign Display Tool by Chani</title>
         <link rel="icon" href="/favicon.ico" />
-        <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_PLACES_API_KEY}&libraries=places`}></script>
+        <script async defer src={`https://maps.googleapis.com/maps/api/js?key=${process.env.PLACES_API_KEY}&libraries=places`}></script>
       </Head>
 
       <header
