@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import MiddayDropdown from './MiddayDropdown'
+import MonthDropdown from './MonthDropdown'
 import SearchInput from './SearchInput'
 import styles from '../styles/Form.module.css'
 
@@ -8,7 +9,6 @@ let currentYear = new Date().getFullYear()
 export default class Form extends Component {
   state = {
     day: '',
-    month: '',
     year: '',
     hour: '',
     min: '',
@@ -51,7 +51,7 @@ export default class Form extends Component {
     data = {
       lat: this.props.lat,
       lon: this.props.lon,
-      date: `${this.state.year}-0${this.state.month}-${this.state.day}`
+      date: `${this.state.year}-${this.props.month}-${this.state.day}`
     }
     const res = await fetch('/api/timezone', {
       body: JSON.stringify(data),
@@ -88,18 +88,8 @@ export default class Form extends Component {
             required
             
           />
-          <label htmlFor="month">Birth Month</label>
-          <input
-            name="month"
-            type="number"
-            autoComplete="month"
-            placeholder="MM"
-            min="1"
-            max="12"
-            value={this.month}
-            className="input"
-            onChange={this.handleChange}
-            required
+          <MonthDropdown
+            setMonth={this.props.setMonth}
           />
           <label htmlFor="day">Birth Day</label>
           <input
@@ -114,12 +104,22 @@ export default class Form extends Component {
             onChange={this.handleChange}
             required
           />
+          <SearchInput
+            day={this.props.day}
+            month={this.props.month}
+            year={this.props.year}
+            postTimeZoneApi={this.postTimeZoneApi}
+            setLat={this.props.setLat}
+            setLong={this.props.setLong}
+          />
           <label htmlFor="hour">Birth Hour</label>
           <input
             name="hour"
             type="number"
             autoComplete="hour"
             placeholder="HH"
+            min="1"
+            max="12"
             value={this.hour}
             className="input"
             onChange={this.handleChange}
@@ -131,6 +131,8 @@ export default class Form extends Component {
             type="number"
             autoComplete="min"
             placeholder="MM"
+            min="0"
+            max="59"
             value={this.min}
             className="input"
             onChange={this.handleChange}
@@ -138,14 +140,6 @@ export default class Form extends Component {
           />
           <MiddayDropdown
             setMidday={this.props.setMidday}
-          />
-          <SearchInput
-            day={this.props.day}
-            month={this.props.month}
-            year={this.props.year}
-            postTimeZoneApi={this.postTimeZoneApi}
-            setLat={this.props.setLat}
-            setLong={this.props.setLong}
           />
           <div id={styles.submitCntnr}>
             <input

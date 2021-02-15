@@ -9,6 +9,7 @@ export default function MiddayDropdown(props) {
         name="midday"
         className="dropdown"
         onChange={handleSelect}
+        required
       >
         <option value="AM">AM</option>
         <option value="PM">PM</option>

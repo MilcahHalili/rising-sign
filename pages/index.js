@@ -10,14 +10,15 @@ export default function Home() {
   const [lat, setLat] = useState('')
   const [long, setLong] = useState('')
   const [midday, setMidday] = useState('')
+  const [month, setMonth] = useState('')
   const [risingSign, setRisingSign] = useState()
   const [tzone, setTzone] = useState('')
   const router = useRouter()
 
   useEffect(async () => {
-    if (risingSign === undefined) {
-      return
-    }
+    // if (risingSign === undefined) {
+    //   return
+    // }
     setRisingSign(risingSign)
     setTzone(tzone)
   })
@@ -39,7 +40,7 @@ export default function Home() {
     
     const context = {
       day: parseInt(event.target.day.value),
-      month: parseInt(event.target.month.value),
+      month: month,
       year: parseInt(event.target.year.value),
       hour: ((midday === 'PM' && parseInt(event.target.hour.value) !== 12) ? (parseInt(event.target.hour.value) + 12) : parseInt(event.target.hour.value)),
       min: parseInt(event.target.min.value),
@@ -87,9 +88,11 @@ export default function Home() {
               setLat={setLat}
               setLong={setLong}
               setMidday={setMidday}
+              setMonth={setMonth}
               setTzone={setTzone}
               lat={lat}
               lon={long}
+              month={month}
             />
           </>
           :
