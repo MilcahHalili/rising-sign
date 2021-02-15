@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import MiddayDropdown from './MiddayDropdown'
-import MonthDropdown from './MonthDropdown'
+import MonthDropdown from './MonDropdown'
 import SearchInput from './SearchInput'
 import styles from '../styles/Form.module.css'
 
@@ -88,7 +88,7 @@ export default class Form extends Component {
             required
             
           />
-          <MonthDropdown
+          <MonDropdown
             setMonth={this.props.setMonth}
           />
           <label htmlFor="day">Birth Day</label>

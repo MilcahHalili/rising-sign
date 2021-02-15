@@ -1,4 +1,4 @@
-export default function MonthDropdown(props) {
+export default function MonDropdown(props) {
   const handleSelect = e => {
     props.setMonth(e.target.value)
   }
