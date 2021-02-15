@@ -22,6 +22,7 @@ export default function Home() {
   })
 
   const postApi = async (data) => {
+    console.log(data, ' data in postApi')
     const res = await fetch('http://localhost:3000/api/ascendant', {
       body: JSON.stringify(data),
       headers: {
@@ -30,6 +31,7 @@ export default function Home() {
       method: 'POST'
     })
     const result = await res.json()
+    console.log(result, ' result in postApi')
     setRisingSign(result)
   }
 
@@ -46,6 +48,7 @@ export default function Home() {
       lon: long,
       tzone: tzone
     }
+    console.log(context)
     postApi(context)
     router.push('/#__next', '/')
   }
