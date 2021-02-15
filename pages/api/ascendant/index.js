@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 export default async function handler(req, res, err) {
-  const url = process.env.API_URL
+  const url = process.env.CUSTOM_API_URL
 
   if (req.method === 'POST') {
     const response = await axios.post(url, {
