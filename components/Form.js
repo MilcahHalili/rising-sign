@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import MiddayDropdown from './MiddayDropdown'
-import MonthDropdown from './MonDropdown'
+import MonDropdown from './MonDropdown'
 import SearchInput from './SearchInput'
 import styles from '../styles/Form.module.css'
 
