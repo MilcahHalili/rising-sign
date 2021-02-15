@@ -5,7 +5,6 @@ export default async function handler(req, res, err) {
   const url = process.env.API_URL
   
   if (req.method === 'POST') {
-    console.log(req.body, ' req.body in api/ascendant')
     const response = await axios.post(url, req.body, {
       headers: {
         'Authorization': 'Basic ' + Buffer.from(`${process.env.USER_ID}:${process.env.API_KEY}`).toString('base64'),
