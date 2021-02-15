@@ -70,7 +70,7 @@ export default function Home() {
       >
         <Image
           id="chani"
-          src="https://chart.chaninicholas.com/static/media/Chani-Nicholas-Regular-Logo-1-Line-1600x182.236fd9a2.png"
+          src="/images/Chani-Nicholas-Logo.png"
           alt="Rising Sign Display Tool by Chani"
           width={800}
           height={91}
@@ -92,7 +92,7 @@ export default function Home() {
           :
           <>
             <Image
-              src={`https://chaninicholas.com/wp-content/uploads/2019/12/${(risingSign.ascendant).toLowerCase()}@2x.png`}
+              src={`/images/${risingSign.ascendant}.png`}
               alt={`${risingSign.ascendant} Rising`}
               width={64}
               height={65}
