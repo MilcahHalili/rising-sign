@@ -71,7 +71,7 @@ export default class Form extends Component {
   
   render() {
     return (
-      <main className={styles.main}>
+      <main className="main">
         <form onSubmit={this.props.handleBirthData}>
           <label htmlFor="year">Birth Year</label>
           <input
@@ -140,11 +140,11 @@ export default class Form extends Component {
           <MiddayDropdown
             setMidday={this.props.setMidday}
           />
-          <div id={styles.submitCntnr}>
+          <div id="submitCntnr">
             <input
               type="submit"
               value="SUBMIT"
-              id={styles.submit}
+              id="submit"
             />
           </div>
         </form>
