@@ -158,12 +158,13 @@ export default class Form extends Component {
             max-width: 33%;
             min-width: 25%;
           }
-          
+          form {
+            width: 300px;
+          }
           #submitCntnr {
             text-align: center;
             margin: 10px 0 77px 0;
           }
-          
           #submit {
             background: rgb(255,14,80);
             background: linear-gradient(90deg, rgba(255,14,80,1) 0%, rgba(213,45,155,1) 50%);
@@ -175,11 +176,6 @@ export default class Form extends Component {
             width: 175px;
             padding: 10px 0;
             border-radius: 25px;
-          }
-          @media (max-width: 812px) {
-            form {
-              width: 300px;
-            }
           }
         `}
         </style>
