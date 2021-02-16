@@ -1,10 +1,12 @@
 # Rising Sign Display Tool for Chani
 
-<img src="https://i.imgur.com/IvwGObb.png" alt="chani-rising-sign-app-form-1" height="300px">
+<img src="https://i.imgur.com/IvwGObb.png" alt="chani-rising-sign-app-form-1" height="500px">
 
-<img src="https://i.imgur.com/2NsqE1g.png" alt="chani-rising-sign-app-form-2" height="300px">
+<img src="https://i.imgur.com/2NsqE1g.png" alt="chani-rising-sign-app-form-2" height="500px">
 
-<img src="https://i.imgur.com/zqITvcs.png" alt="chani-leo-rising" height="300px">
+<img src="https://i.imgur.com/zqITvcs.png" alt="chani-leo-rising" height="500px">
+
+![Chani Rising Sign Demo](https://i.imgur.com/V9YA9zc.gifv)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -41,6 +43,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 Next.js has great built-in functionality such as image optimization and responsiveness. Compare Chani's Birth Chart app with this rising sign tool by changing the size of the window of the Birth Chart app on desktop. The logo's dimensions will warp while the rising sign tool's logo's dimensions persist due to Next's `<Image />` component. Next.js's built-in functionalities allowed me to build and deploy a MVP in a short, week-long sprint.
 
 ### Key decisions in using Next.js:
+- Open Source
 - SEO
 - Image optimization
 - Since the Birth Chart App already uses React, it made sense to build a SPA with a React framework. Chani's dev team can adopt Next.js easily.
@@ -50,6 +53,7 @@ Next.js has great built-in functionality such as image optimization and responsi
   - splitting application into smaller parts (lambdas)
   - zero dependencies
 - Deploying to Vercel:
+  - Open Source
   - zero configuration
   - Serverless Functions
   - instant deployment
