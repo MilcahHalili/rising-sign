@@ -6,7 +6,9 @@
 
 <img src="https://i.imgur.com/zqITvcs.png" alt="chani leo rising" height="500px">
 
-<img src="https://i.imgur.com/V9YA9zc.gif" alt="chani rising app demo" width="375px" >
+View app mobile demo 👉🏽 <a src="https://i.imgur.com/V9YA9zc.gif">here</a>. 👈🏽
+
+<a src="https://rising-sign.vercel.app/">Click here</a> to use the app!
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
