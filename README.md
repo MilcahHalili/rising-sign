@@ -51,15 +51,37 @@ Next.js has great built-in functionality such as image optimization and responsi
 
 ## Other Technical Considerations
 
+Frontend is my first love, and I enjoy getting fonts and images pixel perfect and balancing whitespacing with elements on the page. That being said, styling took a hit to prioritize edge cases. I wanted to remove user error as much as possible, so I put effort I would have otherwise in polishing the styling to create dynamic inputs. Here's the psuedocode I wrote to dynamically change the max attribute of the day input depending on what month it was and whether the birth year was a leap year:
+
+```
+if month is equal to jan, mar, may, jul, aug, oct, dec,
+then max days equals 31
+
+if month is equal to apr, jun, sep, nov,
+then max days equals 30
+
+formula to calculate leap year:
+
+1. if year is evenly divisible by 4, go to step 2. otherwise, go to step 5
+2. if year is evenly divisible by 100, go to step 3. otherwise, go to step 4
+3. if year is evenly divisible by 400, go to step 4. otherwise, go to step 5
+4. the year is a leap year (366-day year) max days equals 28
+5. the year is not a leap year (365-day year) max days equals 29
+```
+
+Even though I didn't dedicate as much time to styling, it was important for me that this app was accessible and mobile friendly. As someone with poor eyesight whom has friends with different seeing abilities, I wanted to make sure the text was easy to read. Most of the people I know who aren't developers surf the web on their phones. Mobile-first is my instinct.
+
 While dependencies decrease code reuse and can be a threat to long term stability of an application if the dependency is no longer maintained or removed, using axios and use-places-autocomplete allowed me to build faster. I chose these depencies because they've either withstood the test of time (axios), are consistently maintained, and are loved by many.
 
 With the same logic that informed my decision to go with Next.js, I decided to use Vercel because Chani uses AWS Lambda, an event-driven serverless computing platform, and Amazon API Gateway for performing POST, GET, and UPDATE request methods. I wanted to follow a similar structure with this application.
 
-Lastly, if Chani wanted to make their WordPress and Shopify sites more performant, they can decouple their "frontends" from their "backends" and use Next.js for the frontend. Next.js is a great use-case for static websites.
+Lastly, if Chani want to make their WordPress and Shopify sites more performant, they can decouple their "frontends" from their "backends" and use Next.js for the frontend. Next.js is a great use-case for static websites.
 
 ## Future Development (If I Had More Time, Then I Would Do This)
 
 Given more time, I would have loved to incorporate passwordless authentication with [Magic](https://docs.magic.link/). Magic decreases the risk of losing customers due to forgotten passwords (linked to defunct email addresses), password data breaches (due to 57% of users re-using passwords), and abandoned shopping carts (due, again, to forgotten passwords.) Authentication and authorization would allow users to save their rising sign information instead of needing to fill out the form every time.
+
+Error messages in real time would have also been great to implement, so that the user doesn't need to wait to click on the submit button to receive feedback.
 
 Enabling authorization would build the foundation for features similar to the Chani iOS app. For example, users can review their weekly horoscopes on the website and add journal entries prompted by their rising sign horoscope for the week.
 
@@ -68,3 +90,17 @@ Another feature I'd have loved to add would be to add Ascendant Planetary Aspect
 Lastly, a navigation to link the user to [ChaniNicholas.com](https://chaninicholas.com/), Chani's social media, and Shopify.
 
 ### Feedback from User Testing (How I Would Improve This App)
+I asked my community of devs and nontechies to perform user testing on my app to catch bugs and provide feedback. The following is a list of the feedback I've received from users:
+
+1. Highlight on the mouseover for birth place autocomplete dropdown.
+2. Can't see the birth place autocomplete dropdown on desktop unless user scrolls down. Createa Aa visual guide to let the user know they need to scroll down on desktop.
+3. On mobile, if user enters one digit for birth year, the app bumps user to the top of the form, but an error doesn't render. Create custom error messages.
+
+How I would improve this app:
+
+1. Clean up my code. Make sure design patterns are consistent (using all style jsx instead of CSS modules, remove use of dependencies or switch to older dependencies with more consistent maintenance and community support, use restful routes, double check that components that could be reused are modula).
+2. Polish the styling. Keep whitespacing balanced and consistency. Keep font sizing balanced. Make sure images are sharp and optimized.
+3. Review the Future Development section
+
+Thanks for reading! 🖤 🤍
+Go build amazing software that makes humans happy. ✌🏽
