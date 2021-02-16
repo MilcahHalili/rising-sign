@@ -6,7 +6,7 @@
 
 <img src="https://i.imgur.com/zqITvcs.png" alt="chani-leo-rising" height="500px">
 
-![Chani Rising Sign Demo](https://i.imgur.com/V9YA9zc.gifv)
+![Chani Rising Sign Demo](https://i.imgur.com/V9YA9zc.gif)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
