@@ -93,14 +93,15 @@ Lastly, a navigation to link the user to [ChaniNicholas.com](https://chaninichol
 I asked my community of devs and nontechies to perform user testing on my app to catch bugs and provide feedback. The following is a list of the feedback I've received from users:
 
 1. Highlight on the mouseover for birth place autocomplete dropdown.
-2. Can't see the birth place autocomplete dropdown on desktop unless user scrolls down. Createa Aa visual guide to let the user know they need to scroll down on desktop.
+2. Can't see the birth place autocomplete dropdown on desktop unless user scrolls down. Create a visual guide to let the user know they need to scroll down on desktop.
 3. On mobile, if user enters one digit for birth year, the app bumps user to the top of the form, but an error doesn't render. Create custom error messages.
 
 How I would improve this app:
 
-1. Clean up my code. Make sure design patterns are consistent (using all style jsx instead of CSS modules, remove use of dependencies or switch to older dependencies with more consistent maintenance and community support, use restful routes, double check that components that could be reused are modula).
+1. Clean up my code. Make sure design patterns are consistent (using all style jsx instead of CSS modules, remove use of dependencies or switch to older dependencies with more consistent maintenance and community support, use restful routes, double check that components that could be reused are modular).
 2. Polish the styling. Keep whitespacing balanced and consistent, especially on mobile. Keep font sizing balanced. Make sure images are sharp and optimized.
 3. Review the Future Development section
 
 Thanks for reading! 🖤 🤍
+
 Go build amazing software that makes humans happy. ✌🏽
