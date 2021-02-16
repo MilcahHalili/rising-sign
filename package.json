@@ -12,7 +12,6 @@
     "next": "^10.0.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-places-autocomplete": "^7.3.0",
     "use-places-autocomplete": "^1.9.1"
   }
 }
