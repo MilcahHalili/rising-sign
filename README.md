@@ -6,7 +6,7 @@
 
 <img src="https://i.imgur.com/zqITvcs.png" alt="chani leo rising" height="500px">
 
-View app mobile demo 👉🏽  [here](https://i.imgur.com/V9YA9zc.gif). 👈🏽
+View app mobile demo 👉🏽 [here](https://i.imgur.com/V9YA9zc.gif)👈🏽
 
 [Click here](https://rising-sign.vercel.app/) to use the app!
 
