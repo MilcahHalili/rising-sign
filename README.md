@@ -1,5 +1,9 @@
 # Rising Sign Display Tool for Chani
 
+<img src="https://i.imgur.com/IvwGObb.png" alt="chani-rising-sign-app-form-1" height="300px">
+<img src="hhttps://i.imgur.com/2NsqE1g.png" alt="chani-rising-sign-app-form-2" height="300px">
+<img src="https://i.imgur.com/2NsqE1g.png" alt="chani-leo-rising-sign-app" height="300px">
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -102,6 +106,7 @@ How I would improve this app:
 2. Polish the styling. Keep whitespacing balanced and consistent, especially on mobile. Keep font sizing balanced. Make sure images are sharp and optimized.
 3. Review the Future Development section
 4. Form width decreases due to the autocomplete birth place dropdown. Keep form width consisent. Remove excess `padding-left` from dropdown as well.
+5. Change midday dropdown to AM and PM radio buttons to remove extra step for user.
 
 Thanks for reading! 🖤 🤍
 
