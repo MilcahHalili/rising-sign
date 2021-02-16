@@ -1,8 +1,10 @@
 # Rising Sign Display Tool for Chani
 
 <img src="https://i.imgur.com/IvwGObb.png" alt="chani-rising-sign-app-form-1" height="300px">
-<img src="hhttps://i.imgur.com/2NsqE1g.png" alt="chani-rising-sign-app-form-2" height="300px">
-<img src="https://i.imgur.com/2NsqE1g.png" alt="chani-leo-rising-sign-app" height="300px">
+
+<img src="https://i.imgur.com/2NsqE1g.png" alt="chani-rising-sign-app-form-2" height="300px">
+
+<img src="https://i.imgur.com/zqITvcs.png" alt="chani-leo-rising" height="300px">
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
