@@ -32,26 +32,26 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 [Chani's Birth Chart app](https://chart.chaninicholas.com/) is built with React, which is the leading library for single-page applications (or SPAs). While there are many benefits to React, a major con is that you lose SEO since JavaScript injects all content client-side, or in the broswer, into a `div` with an `id` of `root`. Next.js solves this issue while maintaining a great React-esque developer experience.
 
-Next.js has great built-in functionality such as image optimization and responsiveness. Compare Chani's Birth Chart app with this rising sign tool by changing the size of the window of the Birth Cart app on desktop. The logo's dimensions will warp while the rising sign tool's logo's dimensions persist due to Next's `<Image />` component. Next.js's built-in functionalities allowed me to build and deploy a MVP in a short, week-long sprint.
+Next.js has great built-in functionality such as image optimization and responsiveness. Compare Chani's Birth Chart app with this rising sign tool by changing the size of the window of the Birth Chart app on desktop. The logo's dimensions will warp while the rising sign tool's logo's dimensions persist due to Next's `<Image />` component. Next.js's built-in functionalities allowed me to build and deploy a MVP in a short, week-long sprint.
 
-### Key decision in using Next.js as a list:
+### Key decisions in using Next.js:
 - SEO
 - Image optimization
 - Since the Birth Chart App already uses React, it made sense to build a SPA with a React framework. Chani's dev team can adopt Next.js easily.
-- Serverless Next.js, which means:
+- Serverless Next.js:
   - improved reliability
   - impoved scalability
   - splitting application into smaller parts (lambdas)
   - zero dependencies
-- Deploying to Vercel, which means:
+- Deploying to Vercel:
   - zero configuration
   - Serverless Functions
   - instant deployment
-  - intuitive GUI for build and function logs
+  - intuitive GUI for build and lambda function logs
 
 ## Other Technical Considerations
 
-Frontend is my first love, and I enjoy getting fonts and images pixel perfect and balancing whitespacing with elements on the page. That being said, styling took a hit to prioritize edge cases. I wanted to remove user error as much as possible, so I put effort I would have otherwise in polishing the styling to create dynamic inputs. Here's the psuedocode I wrote to dynamically change the max attribute of the day input depending on what month it was and whether the birth year was a leap year:
+Frontend is my first love, and I enjoy getting fonts and images pixel perfect and balancing whitespacing with elements on the page. That being said, styling took a hit to prioritize edge cases. I wanted to remove user error as much as possible, so effort I would have otherwise put into polishing the styling went into creating dynamic inputs. Here's the psuedocode I wrote to dynamically change the `max` attribute of the day `input` depending on what month it was and whether the birth year was a leap year:
 
 ```
 if month is equal to jan, mar, may, jul, aug, oct, dec,
@@ -64,9 +64,9 @@ formula to calculate leap year:
 
 1. if year is evenly divisible by 4, go to step 2. otherwise, go to step 5
 2. if year is evenly divisible by 100, go to step 3. otherwise, go to step 4
-3. if year is evenly divisible by 400, go to step 4. otherwise, go to step 5
-4. the year is a leap year (366-day year) max days equals 28
-5. the year is not a leap year (365-day year) max days equals 29
+3. if year-divided-by-400's result is the last two digits of the year, go to step 4. otherwise, go to step 5
+4. the year is a leap year (366-day year) max days equals 29
+5. the year is not a leap year (365-day year) max days equals 28
 ```
 
 Even though I didn't dedicate as much time to styling, it was important for me that this app was accessible and mobile friendly. As someone with poor eyesight whom has friends with different seeing abilities, I wanted to make sure the text was easy to read. Most of the people I know who aren't developers surf the web on their phones. Mobile-first is my instinct.
@@ -99,7 +99,7 @@ I asked my community of devs and nontechies to perform user testing on my app to
 How I would improve this app:
 
 1. Clean up my code. Make sure design patterns are consistent (using all style jsx instead of CSS modules, remove use of dependencies or switch to older dependencies with more consistent maintenance and community support, use restful routes, double check that components that could be reused are modula).
-2. Polish the styling. Keep whitespacing balanced and consistency. Keep font sizing balanced. Make sure images are sharp and optimized.
+2. Polish the styling. Keep whitespacing balanced and consistent, especially on mobile. Keep font sizing balanced. Make sure images are sharp and optimized.
 3. Review the Future Development section
 
 Thanks for reading! 🖤 🤍
