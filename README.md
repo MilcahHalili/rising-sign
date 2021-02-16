@@ -8,11 +8,13 @@
 
 View app mobile demo 👉🏽 [here](https://i.imgur.com/V9YA9zc.gif)👈🏽
 
+## Find Out Your Rising Sign
+
 [Click here](https://rising-sign.vercel.app/) to use the app!
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
