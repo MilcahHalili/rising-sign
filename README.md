@@ -101,6 +101,7 @@ How I would improve this app:
 1. Clean up my code. Make sure design patterns are consistent (using all style jsx instead of CSS modules, remove use of dependencies or switch to older dependencies with more consistent maintenance and community support, use restful routes, double check that components that could be reused are modular).
 2. Polish the styling. Keep whitespacing balanced and consistent, especially on mobile. Keep font sizing balanced. Make sure images are sharp and optimized.
 3. Review the Future Development section
+4. Form width decreases due to the autocomplete birth place dropdown. Keep form width consisent. Remove excess `padding-left` from dropdown as well.
 
 Thanks for reading! 🖤 🤍
 
