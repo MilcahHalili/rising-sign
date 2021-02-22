@@ -109,6 +109,7 @@ I asked my community of devs and nontechies to perform user testing on my app to
 1. Highlight on the mouseover for birth place autocomplete dropdown.
 2. Can't see the birth place autocomplete dropdown on desktop unless user scrolls down. Create a visual guide to let the user know they need to scroll down on desktop.
 3. On mobile, if user enters one digit for birth year, the app bumps user to the top of the form, but an error doesn't render. Create custom error messages.
+4. Info on whether data is stored or not and statement of purpose.
 
 How I would improve this app:
 
