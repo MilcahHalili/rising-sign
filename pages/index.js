@@ -40,7 +40,7 @@ export default function Home() {
       day: parseInt(event.target.day.value),
       month: month,
       year: parseInt(event.target.year.value),
-      hour: ((midday === 'PM' && parseInt(event.target.hour.value) !== 12) ? (parseInt(event.target.hour.value) + 12) : parseInt(event.target.hour.value)),
+      hour: ((midday === 'PM' && parseInt(event.target.hour.value) !== 12) ? (parseInt(event.target.hour.value) + 12) : (event.target.hour.value === '12' ? 0 : parseInt(event.target.hour.value))),
       min: parseInt(event.target.min.value),
       lat: lat,
       lon: long,
