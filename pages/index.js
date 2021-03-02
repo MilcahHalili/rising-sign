@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -15,11 +15,6 @@ export default function Home() {
   const [risingSign, setRisingSign] = useState()
   const [tzone, setTzone] = useState('')
   const router = useRouter()
-
-  useEffect(async () => {
-    setTzone(tzone)
-    setRisingSign(risingSign)
-  })
 
   const postApi = async data => {
     const res = await fetch('/api/ascendant', {
