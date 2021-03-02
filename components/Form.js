@@ -15,7 +15,9 @@ export default class Form extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.month !== this.state.month) {
+    if (prevProps.month !== this.props.month) {
+      this.calculateMaxDays()
+    } else if (prevState.year !== this.state.year) {
       this.calculateMaxDays()
     }
   }
@@ -33,11 +35,11 @@ export default class Form extends Component {
   }
 
   calculateMaxDays = () => {
-    if (this.state.month === '1' || this.state.month === '3' || this.state.month === '5' || this.state.month === '7' || this.state.month === '8' || this.state.month === '10' || this.state.month === '12') {
+    if (this.props.month === '1' || this.props.month === '3' || this.props.month === '5' || this.props.month === '7' || this.props.month === '8' || this.props.month === '10' || this.props.month === '12') {
       this.setState({
         maxDays: 31
       })
-    } else if (this.state.month === '4' || this.state.month === '6' || this.state.month === '9' || this.state.month === '11') {
+    } else if (this.props.month === '4' || this.props.month === '6' || this.props.month === '9' || this.props.month === '11') {
       this.setState({
         maxDays: 30
       })
