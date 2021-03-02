@@ -11,7 +11,7 @@ export default function Home() {
   const [lat, setLat] = useState('')
   const [long, setLong] = useState('')
   const [midday, setMidday] = useState('')
-  const [month, setMonth] = useState('')
+  const [month, setMonth] = useState('1')
   const [risingSign, setRisingSign] = useState()
   const [tzone, setTzone] = useState('')
   const router = useRouter()
